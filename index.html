@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 STUDIO | Digital & Creative Agency</title>
-    
-    <!-- Font Inter per lo stile Apple/Clean -->
+    <title>404 STUDIO | Digital Agency</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,149 +16,58 @@
             --glass-bg: rgba(255, 255, 255, 0.7);
             --radius-card: 24px;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-primary); 
-            overflow-x: hidden; 
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); overflow-x: hidden; }
 
         /* HEADER */
-        header { 
-            position: absolute; 
-            top: 0; left: 0; width: 100%; 
-            padding: 2rem; 
-            z-index: 10; 
-            display: flex; 
-            justify-content: center; 
-        }
-        .logo-img { height: 40px; width: auto; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1)); }
+        header { position: absolute; top: 0; left: 0; width: 100%; padding: 2rem; z-index: 10; display: flex; justify-content: center; }
+        .logo-img { height: 45px; width: auto; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1)); }
 
-        /* HERO (DONNA) */
-        .hero { 
-            position: relative; 
-            height: 95vh; 
-            width: 100%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            overflow: hidden; 
-            color: white; 
-            text-align: center; 
-        }
+        /* HERO SECTION */
+        .hero { position: relative; height: 95vh; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; text-align: center; }
         .hero-bg { 
-            position: absolute; 
-            top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: url('https://i.imgur.com/8XqJz9L.jpeg'); /* Picture 3 */
-            background-size: cover; 
-            background-position: center; 
-            z-index: -1; 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background-image: url('hero.jpg'); /* NOME FILE ESATTO */
+            background-size: cover; background-position: center; z-index: -1; 
         }
-        .hero-overlay { 
-            position: absolute; 
-            top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)); 
-            z-index: 0; 
-        }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5)); z-index: 0; }
         .hero-content { z-index: 1; max-width: 900px; padding: 0 20px; animation: fadeInUp 1s ease-out; }
-        .hero h1 { 
-            font-size: clamp(3rem, 6vw, 5.5rem); 
-            font-weight: 700; 
-            line-height: 1.1; 
-            letter-spacing: -0.02em; 
-            margin-bottom: 1rem; 
-            text-transform: uppercase; 
-        }
+        .hero h1 { font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; text-transform: uppercase; }
         .hero p { font-size: 1.5rem; font-weight: 400; opacity: 0.9; }
 
         /* SERVICES GRID */
         .services-section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2.5rem; font-weight: 600; margin-bottom: 3rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px); 
-            border: 1px solid rgba(255,255,255,0.5); 
-            border-radius: var(--radius-card); 
-            padding: 2.5rem; 
-            transition: transform 0.3s ease; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
-        }
+        .card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.5); border-radius: var(--radius-card); padding: 2.5rem; transition: transform 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.9); }
         .card h3 { font-size: 1.4rem; margin-bottom: 1rem; font-weight: 600; }
         .card p { color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem; }
 
-        /* FEATURED PROJECT (FIRENZE) */
-        .featured-project { 
-            position: relative; 
-            margin: 4rem 2rem; 
-            border-radius: 30px; 
-            overflow: hidden; 
-            height: 600px; 
-            display: flex; 
-            align-items: center; 
-            color: white; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
-        }
+        /* FEATURED PROJECT */
+        .featured-project { position: relative; margin: 4rem 2rem; border-radius: 30px; overflow: hidden; height: 600px; display: flex; align-items: center; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
         .project-bg { 
-            position: absolute; 
-            top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: url('https://i.imgur.com/vZkRfGp.jpeg'); /* Picture 5 */
-            background-size: cover; 
-            background-position: center; 
-            z-index: -1; 
-            transition: transform 0.5s ease; 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background-image: url('firenze.jpg'); /* NOME FILE ESATTO */
+            background-size: cover; background-position: center; z-index: -1; transition: transform 0.5s ease; 
         }
         .featured-project:hover .project-bg { transform: scale(1.03); }
-        .project-content { 
-            background: rgba(0, 0, 0, 0.4); 
-            backdrop-filter: blur(10px); 
-            padding: 3rem; 
-            border-radius: 20px; 
-            margin-left: 5%; 
-            max-width: 500px; 
-            border: 1px solid rgba(255,255,255,0.2); 
-        }
+        .project-content { background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); padding: 3rem; border-radius: 20px; margin-left: 5%; max-width: 500px; border: 1px solid rgba(255,255,255,0.2); }
         .project-content h2 { font-size: 2.5rem; margin-bottom: 1rem; }
         .project-content p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9; }
 
-        /* PRODUCT SHOWCASE (PROFUMO SCURO) */
-        .product-showcase { 
-            background: #000; 
-            color: white; 
-            padding: 6rem 2rem; 
-            display: flex; 
-            flex-wrap: wrap; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 4rem; 
-        }
+        /* PRODUCT SHOWCASE */
+        .product-showcase { background: #000; color: white; padding: 6rem 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4rem; }
         .showcase-text { flex: 1; min-width: 300px; max-width: 500px; }
-        .showcase-text h2 { 
-            font-size: 3rem; 
-            margin-bottom: 1rem; 
-            background: linear-gradient(to right, #fff, #888); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
+        .showcase-text h2 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(to right, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .showcase-text p { color: #888; font-size: 1.1rem; line-height: 1.6; }
         .showcase-img-container { flex: 1; min-width: 300px; max-width: 500px; }
-        .showcase-img { 
-            width: 100%; 
-            border-radius: 20px; 
-            box-shadow: 0 0 50px rgba(255,255,255,0.1); 
-            display: block; 
-        }
+        .showcase-img { width: 100%; border-radius: 20px; box-shadow: 0 0 50px rgba(255,255,255,0.1); display: block; }
 
         /* FOOTER */
         footer { text-align: center; padding: 3rem; color: var(--text-secondary); font-size: 0.9rem; border-top: 1px solid rgba(0,0,0,0.05); }
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .featured-project { height: 400px; margin: 2rem 1rem; }
@@ -171,12 +78,12 @@
 </head>
 <body>
 
-    <!-- HEADER LOGO -->
+    <!-- LOGO -->
     <header>
-        <img src="https://i.imgur.com/LpYp3qG.png" alt="404 Studio Logo" class="logo-img">
+        <img src="logo.png" alt="404 Studio Logo" class="logo-img"> <!-- NOME FILE ESATTO -->
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
@@ -186,7 +93,7 @@
         </div>
     </section>
 
-    <!-- SERVICES GRID -->
+    <!-- SERVICES -->
     <section class="services-section">
         <h2 class="section-title">Cosa facciamo</h2>
         <div class="grid">
@@ -197,7 +104,7 @@
         </div>
     </section>
 
-    <!-- FEATURED PROJECT (FIRENZE) -->
+    <!-- FEATURED PROJECT -->
     <section class="featured-project">
         <div class="project-bg"></div>
         <div class="project-content">
@@ -206,14 +113,14 @@
         </div>
     </section>
 
-    <!-- PRODUCT SHOWCASE (PROFUMO SCURO) -->
+    <!-- PRODUCT SHOWCASE -->
     <section class="product-showcase">
         <div class="showcase-text">
             <h2>Product Photography</h2>
             <p>Catturiamo l'essenza del lusso. Servizi fotografici professionali per prodotti di alta gamma.</p>
         </div>
         <div class="showcase-img-container">
-            <img src="https://i.imgur.com/PzFSjkY.jpg" alt="Profumo Luxury" class="showcase-img">
+            <img src="profumo.jpg" alt="Profumo Luxury" class="showcase-img"> <!-- NOME FILE ESATTO -->
         </div>
     </section>
 
