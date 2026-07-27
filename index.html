@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 STUDIO | Digital Agency</title>
+    <title>404 STUDIO | Digital Agency & RedClub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,131 +14,109 @@
             --text-primary: #1d1d1f;
             --text-secondary: #86868b;
             --accent-blue: #0071e3;
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --radius-card: 24px;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --radius-card: 20px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); overflow-x: hidden; }
 
-        /* HEADER */
-        header { position: absolute; top: 0; left: 0; width: 100%; padding: 2rem; z-index: 10; display: flex; justify-content: center; }
-        .logo-img { height: 45px; width: auto; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.1)); }
-
-        /* HERO SECTION - FULL SCREEN & FIX BUG */
-        .hero { 
-            position: relative; 
-            height: 100vh; /* Tutto lo schermo */
-            width: 100%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            overflow: hidden; 
-            color: white; 
-            text-align: center; 
+        /* HEADER CON PULSANTE EVIDENZIATO */
+        header { 
+            position: fixed; top: 0; left: 0; width: 100%; 
+            padding: 1.5rem 2rem; z-index: 100; 
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(245, 245, 247, 0.85);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .hero-bg { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: url('hero.jpg'); 
-            background-size: cover; background-position: center; z-index: -1; 
-            /* Fix bug: nessun animation-delay o fade-in complesso che blocca il render */
-        }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)); z-index: 0; }
+        .logo-text { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.5px; color: var(--text-primary); text-decoration: none; }
         
-        /* Animazione semplice solo sul testo per non bloccare l'immagine */
-        .hero-content { 
-            z-index: 1; max-width: 900px; padding: 0 20px; 
-            opacity: 0; 
-            animation: fadeInText 1.5s ease-out forwards; 
-        }
-        @keyframes fadeInText { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        .hero h1 { font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; text-transform: uppercase; }
-        .hero p { font-size: 1.5rem; font-weight: 400; opacity: 0.9; }
-
-        /* SERVICES GRID */
-        .services-section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.5rem; font-weight: 600; margin-bottom: 3rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.5); border-radius: var(--radius-card); padding: 2.5rem; transition: transform 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.9); }
-        .card h3 { font-size: 1.4rem; margin-bottom: 1rem; font-weight: 600; }
-        .card p { color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem; }
-
-        /* FEATURED PROJECT - IMMAGINE PIÙ GRANDE E PULSANTE */
-        .featured-project { 
-            position: relative; 
-            margin: 4rem 0; /* Full width orizzontale */
-            height: 750px; /* Molto più alto di prima */
-            display: flex; 
-            align-items: flex-end; /* Testo in basso per non coprire il viso */
-            justify-content: flex-start;
-            color: white; 
-            overflow: hidden;
-        }
-        .project-bg { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background-image: url('firenze.jpg'); 
-            background-size: cover; background-position: center; z-index: -1; 
-            transition: transform 0.6s ease; 
-        }
-        .featured-project:hover .project-bg { transform: scale(1.05); }
-        
-        .project-content { 
-            background: rgba(0, 0, 0, 0.6); 
-            backdrop-filter: blur(15px); 
-            padding: 3rem; 
-            margin: 3rem; 
-            max-width: 600px; 
-            border-radius: 24px; 
-            border: 1px solid rgba(255,255,255,0.2); 
-            z-index: 2;
-        }
-        .project-content h2 { font-size: 2.8rem; margin-bottom: 0.5rem; line-height: 1.1; }
-        .project-subtitle { font-size: 1.2rem; color: #e0e0e0; margin-bottom: 1.5rem; font-weight: 500; }
-        .project-content p { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; line-height: 1.6; }
-
-        /* PULSANTE STILE APPLE */
-        .btn-shop {
-            display: inline-block;
+        .btn-header {
             background-color: var(--accent-blue);
             color: white;
-            padding: 12px 28px;
+            padding: 10px 24px;
             border-radius: 980px;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
         }
-        .btn-shop:hover {
-            background-color: #0077ed;
-            transform: scale(1.02);
-            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.4);
-        }
+        .btn-header:hover { transform: scale(1.05); background-color: #0077ed; }
 
-        /* PRODUCT SHOWCASE - IMMAGINE PIÙ GRANDE */
-        .product-showcase { background: #000; color: white; padding: 8rem 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 5rem; }
-        .showcase-text { flex: 1; min-width: 300px; max-width: 500px; }
-        .showcase-text h2 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(to right, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .showcase-text p { color: #888; font-size: 1.1rem; line-height: 1.6; }
-        .showcase-img-container { flex: 1; min-width: 300px; max-width: 600px; /* Più largo */ }
-        .showcase-img { width: 100%; border-radius: 24px; box-shadow: 0 0 60px rgba(255,255,255,0.1); display: block; }
+        /* HERO SECTION */
+        .hero { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; color: white; text-align: center; margin-top: 0; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('hero.jpg'); background-size: cover; background-position: center; z-index: -1; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)); z-index: 0; }
+        .hero-content { z-index: 1; max-width: 900px; padding: 0 20px; opacity: 0; animation: fadeInText 1.5s ease-out forwards; }
+        @keyframes fadeInText { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero h1 { font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem; text-transform: uppercase; }
+        .hero p { font-size: 1.6rem; font-weight: 400; opacity: 0.95; max-width: 700px; margin: 0 auto; }
+
+        /* ANALYTICS SECTION (DATI REALI) */
+        .analytics-section { padding: 6rem 2rem; background: white; }
+        .analytics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 3rem auto 0; }
+        .stat-card { background: var(--bg-color); padding: 2rem; border-radius: var(--radius-card); text-align: center; transition: transform 0.3s; }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-number { font-size: 3.5rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: -1px; }
+        .stat-label { font-size: 1.1rem; color: var(--text-secondary); font-weight: 500; }
+        .stat-sub { font-size: 0.9rem; color: #888; margin-top: 0.5rem; }
+
+        /* REDCLUB SECTION */
+        .redclub-section { 
+            background: #000; color: white; padding: 8rem 2rem; 
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4rem;
+            position: relative; overflow: hidden;
+        }
+        .redclub-content { flex: 1; min-width: 300px; max-width: 600px; z-index: 2; }
+        .redclub-tag { color: #ff3b30; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        .redclub-content h2 { font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1; }
+        .redclub-content p { font-size: 1.2rem; color: #a1a1a6; line-height: 1.6; margin-bottom: 2rem; }
+        .redclub-img-container { flex: 1; min-width: 300px; max-width: 500px; position: relative; }
+        .redclub-img { width: 100%; border-radius: 30px; box-shadow: 0 20px 60px rgba(255,255,255,0.1); display: block; transform: rotate(-3deg); transition: transform 0.5s; }
+        .redclub-img:hover { transform: rotate(0deg) scale(1.02); }
+
+        /* FEATURED PROJECT: 404 SHOP ITALIA */
+        .featured-project { position: relative; margin: 0; height: 80vh; display: flex; align-items: flex-end; color: white; overflow: hidden; }
+        .project-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('firenze.jpg'); background-size: cover; background-position: center; z-index: -1; transition: transform 0.8s ease; }
+        .featured-project:hover .project-bg { transform: scale(1.05); }
+        .project-content { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(20px); padding: 4rem; margin: 4rem; max-width: 650px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); z-index: 2; }
+        .project-content h2 { font-size: 3rem; margin-bottom: 1rem; }
+        .project-content p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9; line-height: 1.6; }
+        
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary { background-color: var(--accent-blue); color: white; padding: 14px 32px; border-radius: 980px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .btn-primary:hover { background-color: #0077ed; transform: scale(1.03); }
+        .btn-secondary { background-color: rgba(255,255,255,0.2); color: white; padding: 14px 32px; border-radius: 980px; text-decoration: none; font-weight: 600; transition: 0.3s; backdrop-filter: blur(10px); }
+        .btn-secondary:hover { background-color: rgba(255,255,255,0.3); }
+
+        /* SERVICES GRID */
+        .services-section { padding: 8rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 4rem; letter-spacing: -0.02em; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: white; border-radius: var(--radius-card); padding: 3rem; transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; }
+        .card p { color: var(--text-secondary); line-height: 1.6; font-size: 1rem; }
 
         /* FOOTER */
-        footer { text-align: center; padding: 3rem; color: var(--text-secondary); font-size: 0.9rem; border-top: 1px solid rgba(0,0,0,0.05); }
+        footer { text-align: center; padding: 4rem 2rem; background: #f5f5f7; color: var(--text-secondary); font-size: 0.9rem; border-top: 1px solid rgba(0,0,0,0.05); }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .featured-project { height: 500px; }
-            .project-content { margin: 1.5rem; padding: 1.5rem; }
-            .product-showcase { flex-direction: column-reverse; text-align: center; gap: 3rem; }
+            .hero h1 { font-size: 3rem; }
+            .featured-project { height: auto; min-height: 600px; }
+            .project-content { margin: 1.5rem; padding: 2rem; }
+            .redclub-section { padding: 4rem 1.5rem; text-align: center; }
+            .btn-group { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- LOGO -->
+    <!-- HEADER FISSO CON PULSANTE CONTATTACI -->
     <header>
-        <img src="logo.png" alt="404 Studio Logo" class="logo-img">
+        <a href="#" class="logo-text">404 STUDIO</a>
+        <a href="mailto:business.404studio@outlook.it" class="btn-header">Contattaci</a>
     </header>
 
     <!-- HERO -->
@@ -147,18 +125,51 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>IL TUO BUSINESS<br>I NOSTRI SERVIZI.</h1>
-            <p>Marketing, Design e Sviluppo Web di alto livello.</p>
+            <p>Marketing, Design e Sviluppo Web di alto livello per brand che vogliono dominare il mercato.</p>
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="services-section">
-        <h2 class="section-title">Cosa facciamo</h2>
-        <div class="grid">
-            <div class="card"><h3>Social Media Marketing</h3><p>Gestione strategica dei canali social per far crescere la tua community.</p></div>
-            <div class="card"><h3>Grafica & Locandine</h3><p>Design visivo d'impatto. Dalla branding identity alla carta stampata.</p></div>
-            <div class="card"><h3>Sviluppo Siti Web</h3><p>Piattaforme digitali veloci, responsive e ottimizzate per convertire.</p></div>
-            <div class="card"><h3>Menu Digitali</h3><p>Soluzioni QR code moderne per la ristorazione. Eleganti e funzionali.</p></div>
+    <!-- SEZIONE DATI ANALITICA (SOLIDITÀ DEL GRUPPO) -->
+    <section class="analytics-section">
+        <h2 class="section-title">I Numeri del Successo</h2>
+        <p style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: -2rem auto 0; font-size: 1.1rem;">
+            La solidità di 404 Group si misura sui risultati. Ecco le performance reali raggiunte nelle nostre ultime campagne strategiche.
+        </p>
+        <div class="analytics-grid">
+            <div class="stat-card">
+                <div class="stat-number">61.2K</div>
+                <div class="stat-label">Visualizzazioni Post</div>
+                <div class="stat-sub">Reach organica esplosiva</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">+8,286</div>
+                <div class="stat-label">Follower Netti</div>
+                <div class="stat-sub">Crescita community in 90 giorni</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">90.9%</div>
+                <div class="stat-label">Traffico "Per Te"</div>
+                <div class="stat-sub">Dominio degli algoritmi social</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">442</div>
+                <div class="stat-label">Interazioni Dirette</div>
+                <div class="stat-sub">Engagement rate elevato</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE REDCLUB (E-COMMERCE PROFUMI & TECH) -->
+    <section class="redclub-section">
+        <div class="redclub-content">
+            <span class="redclub-tag">Il Nostro Brand</span>
+            <h2>RedClub.<br>L'eccellenza italiana.</h2>
+            <p><strong>404shopitalia.it</strong> è l'ecosistema digitale di RedClub. Uniamo il lusso delle fragranze artigianali con l'innovazione degli accessori tecnologici. Non vendiamo solo prodotti, creiamo un lifestyle esclusivo supportato da una logistica e un marketing di proprietà.</p>
+            <a href="https://www.404shopitalia.it" target="_blank" class="btn-primary">Scopri RedClub &rarr;</a>
+        </div>
+        <div class="redclub-img-container">
+            <!-- Usa l'immagine del profumo scuro qui -->
+            <img src="profumo.jpg" alt="RedClub Products" class="redclub-img">
         </div>
     </section>
 
@@ -167,26 +178,28 @@
         <div class="project-bg"></div>
         <div class="project-content">
             <h2>404 Shop Italia</h2>
-            <div class="project-subtitle">L'essenza della Toscana in una fragranza.</div>
-            <p>Un progetto e-commerce esclusivo che unisce l'eleganza di Firenze all'innovazione digitale. Scopri la nostra collezione di profumi artigianali ispirati ai borghi italiani.</p>
-            <a href="https://www.404shopitalia.it" target="_blank" class="btn-shop">Visita lo Shop &rarr;</a>
+            <p>La vetrina digitale della Toscana. Un progetto e-commerce che unisce tradizione e modernità, gestito interamente dal nostro studio per massimizzare conversioni e brand awareness.</p>
+            <div class="btn-group">
+                <a href="https://www.404shopitalia.it" target="_blank" class="btn-primary">Visita lo Shop</a>
+                <a href="mailto:business.404studio@outlook.it" class="btn-secondary">Richiedi Preventivo</a>
+            </div>
         </div>
     </section>
 
-    <!-- PRODUCT SHOWCASE -->
-    <section class="product-showcase">
-        <div class="showcase-text">
-            <h2>Product Photography</h2>
-            <p>Catturiamo l'essenza del lusso. Servizi fotografici professionali per prodotti di alta gamma, con illuminazione cinematografica e post-produzione avanzata.</p>
-        </div>
-        <div class="showcase-img-container">
-            <img src="profumo.jpg" alt="Profumo Luxury" class="showcase-img">
+    <!-- SERVICES -->
+    <section class="services-section">
+        <h2 class="section-title">Cosa facciamo</h2>
+        <div class="grid">
+            <div class="card"><h3>Social Media Marketing</h3><p>Gestione strategica dei canali social. Come dimostrano i nostri dati, sappiamo come far esplodere la reach organica.</p></div>
+            <div class="card"><h3>Grafica & Locandine</h3><p>Design visivo d'impatto. Dalla branding identity alla carta stampata, curiamo ogni dettaglio estetico.</p></div>
+            <div class="card"><h3>Sviluppo Siti Web</h3><p>Piattaforme digitali veloci, responsive e ottimizzate per convertire i visitatori in clienti fedeli.</p></div>
+            <div class="card"><h3>Menu Digitali</h3><p>Soluzioni QR code moderne per la ristorazione. Eleganti, funzionali e sempre aggiornabili.</p></div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 404 Group 2026/2027. Tutti i diritti riservati.<br>BUSINESS.404STUDIO@OUTLOOK.IT</p>
+        <p>&copy; 404 Group 2026/2027. Tutti i diritti riservati.<br>Business Email: business.404studio@outlook.it</p>
     </footer>
 
 </body>
